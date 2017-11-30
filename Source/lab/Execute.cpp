@@ -67,7 +67,7 @@ void AExecute::update() {
 	o_valC = (FString)" " + TOHEX(valC);
 	o_valA = (FString)" " + TOHEX(valA);
 	o_valB = (FString)" " + TOHEX(valB);
-
+	output = "";
 
 
 	if (icode == '#' || icode == '1') { //ADD II
@@ -133,7 +133,7 @@ void AExecute::update() {
 	o_aluA = (FString)" " + TOHEX(aluA);
 	o_aluB = (FString)" " + TOHEX(aluB);
 	o_aluFun = (FString)" " + (TCHAR)(aluFun);
-
+	
 
 
 	//get e_valE 
@@ -141,17 +141,22 @@ void AExecute::update() {
 	{
 	case'0':
 		e_valE = aluA + aluB;
+		output = (FString)"valE <- " + TOHEX(aluA) + (FString)" + " + TOHEX(aluB) + (FString)" = " + TOHEX(e_valE);
 		break;
 	case'1':
 		e_valE = aluB - aluA;
+		output = (FString)"valE <- " + TOHEX(aluA) + (FString)" - " + TOHEX(aluB) + (FString)" = " + TOHEX(e_valE);
 		break;
 	case'2':
 		e_valE = aluA & aluB;
+		output = (FString)"valE <- " + TOHEX(aluA) + (FString)" & " + TOHEX(aluB) + (FString)" = " + TOHEX(e_valE);
 		break;
 	case'3':
 		e_valE = aluA ^ aluB;
+		output = (FString)"valE <- " + TOHEX(aluA) + (FString)" ^ " + TOHEX(aluB) + (FString)" = " + TOHEX(e_valE);
 		break;
 	default:
+		output = "";
 		break;
 	}
 

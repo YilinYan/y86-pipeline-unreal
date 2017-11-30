@@ -70,12 +70,12 @@ void ADecodeAndWrite::update() {
 	o_reg = (FString)"%eax :  " + TOHEX(reg[0]) + '\n';
 	o_reg += (FString)"%ecx :  " + TOHEX(reg[1]) + '\n';
 	o_reg += (FString)"%edx :  " + TOHEX(reg[2]) + '\n';
-	o_reg += (FString)"%ebx :  " + TOHEX(reg[3]) + '\n';	
+	o_reg += (FString)"%ebx :  " + TOHEX(reg[3]) + '\n';
 	o_reg += (FString)"%esp :  " + TOHEX(reg[4]) + '\n';
 	o_reg += (FString)"%ebp :  " + TOHEX(reg[5]) + '\n';
 	o_reg += (FString)"%esi :  " + TOHEX(reg[6]) + '\n';
 	o_reg += (FString)"%edi :  " + TOHEX(reg[7]) + '\n';
-
+	output = "";
 
 
 	if (D_bubble == 1) {
@@ -126,6 +126,8 @@ void ADecodeAndWrite::update() {
 		e_srcB = '#'; //ADD II
 		break;
 	}
+
+
 
 
 	//get d_bubble 
@@ -181,6 +183,11 @@ void ADecodeAndWrite::update() {
 	else {
 		e_valB = reg[e_srcB - '0'];
 	}
+
+	FString regind[] = {"%eax", "%ecx", "%edx", "%ebx", "%esp", "%ebp", "%esi", "%edi"};
+
+	if(e_srcA != '#') output += (FString)"valA <- R[" + regind[e_srcA - '0'] + (FString)"] = " + TOHEX(e_valA) + '\n';
+	if(e_srcB != '#') output += (FString)"valB <- R[" + regind[e_srcB - '0'] + (FString)"] = " + TOHEX(e_valB) + '\n';
 
 	//get e_dstE
 	switch (icode) {

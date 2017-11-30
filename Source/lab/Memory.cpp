@@ -60,6 +60,7 @@ void AMemory::update() {
 	o_valE = (FString)" " + TOHEX(valE);
 	o_valA = (FString)" " + TOHEX(valA);
 	o_Cnd = (FString)" " + (Cnd ? "1" : "0");
+	output = "";
 
 	if (M_bubble == 1) {
 		M_bubble = 0;
@@ -107,6 +108,7 @@ void AMemory::update() {
 			e_valM *= 16 * 16;
 			e_valM += mem[i];
 		}
+		output = (FString)"valM <- M8[" + TOHEX(addr) + (FString)"] = " + TOHEX(e_valM);
 	}
 
 	// write back
@@ -116,6 +118,7 @@ void AMemory::update() {
 			mem[i] = tp % (16 * 16);
 			tp /= (16 * 16);
 		}
+		output = (FString)"M8[" + TOHEX(addr) + (FString)"] <- valA = " + TOHEX(valA);
 	}
 
 

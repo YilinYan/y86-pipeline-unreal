@@ -97,11 +97,12 @@ void AFetch::update() {
 
 
 	//update output
+	
 	o_icode = (FString)" " + (TCHAR)(icode);
 	o_ifun = (FString)" " + (TCHAR)(ifun);
-	o_f_PC = (FString)" " + TOHEX(f_PC);
+	o_f_PC = (FString)" " + TOHEX(ff_PC);
 	o_prePC = (FString)" " + TOHEX(prePC);
-
+	output = (FString)"icode:ifun <- M1[" + o_f_PC + (FString)"] = " + o_icode + ":" + o_ifun + '\n';
 
 	if (icode == '#' || icode == '1') return;
 
@@ -110,21 +111,25 @@ void AFetch::update() {
 	case '4':
 	case '5':
 		valP = ff_PC + 6;
+		output += (FString)"valP <-" + o_f_PC + " + 6 = " + TOHEX(valP) + '\n';
 		break;
 	case '7':
 	case '8':
 		valP = ff_PC + 5;
+		output += (FString)"valP <-" + o_f_PC + " + 5 = " + TOHEX(valP) + '\n';
 		break;
 	case '2':
 	case '6':
 	case 'a':
 	case 'b':
 		valP = ff_PC + 2;
+		output += (FString)"valP <-" + o_f_PC + " + 2 = " + TOHEX(valP) + '\n';
 		break;
 	case '9':
 	case '0':
 	case '1':
 		valP = ff_PC + 1;
+		output += (FString)"valP <-" + o_f_PC + " + 1 = " + TOHEX(valP) + '\n';
 	}
 
 	switch (icode) { // count need reg / valC
@@ -153,10 +158,20 @@ void AFetch::update() {
 		need_valC = 0;
 	}
 
-	if (need_reg) rA = input[f_PC + 2], rB = input[f_PC + 3]; // rA rB
+	if (need_reg) {
+		rA = input[f_PC + 2], rB = input[f_PC + 3]; // rA rB
+		output += (FString)"rA:rB <- M1[" + o_f_PC + (FString)" + 1] = " + (TCHAR)rA + ":" + (TCHAR)rB + '\n';
+	}
+
 	if (need_valC) {
 		int fr = f_PC + 2;
-		if (need_reg) fr += 2;
+		if (need_reg) {
+			fr += 2;
+			output += (FString)"valC <- M8[" + o_f_PC + (FString)" + 2] = ";
+		}
+		else {
+			output += (FString)"valC <- M8[" + o_f_PC + (FString)" + 1] = ";
+		}
 
 		valC = 0;
 		for (int i = fr + 6; i >= fr; i -= 2) {  //count valC
@@ -165,6 +180,8 @@ void AFetch::update() {
 			int b = (input[i + 1] >= 'a') ? (input[i + 1] - 'a' + 10) : (input[i + 1] - '0');
 			valC += a * 16 + b;
 		}
+
+		output += TOHEX(valC) + '\n';
 	}
 
 	//get prePC

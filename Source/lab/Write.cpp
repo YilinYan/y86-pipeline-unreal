@@ -57,6 +57,7 @@ void AWrite::update() {
 	o_dstM = (FString)" " + (TCHAR)(dstM);
 	o_valE = (FString)" " + TOHEX(valE);
 	o_valM = (FString)" " + TOHEX(valM);
+	output = "";
 
 
 
@@ -67,11 +68,12 @@ void AWrite::update() {
 
 	if (icode == '#' || icode == '1') return;
 
-	output = (FString)"icode = " + (TCHAR)(icode) + '\n';
-	output += (FString)"valE = " + FString::FromInt(valE) + '\n';
-	output += (FString)"valM = " + FString::FromInt(valM) + '\n';
-	output += (FString)"dstE = " + (TCHAR)(dstE) + '\n';
-	output += (FString)"dstM = " + (TCHAR)(dstM) + '\n';
+	FString regind[] = { "%eax", "%ecx", "%edx", "%ebx", "%esp", "%ebp", "%esi", "%edi" };
+
+
+	if (dstE != '#') output += (FString)"R[" + regind[dstE - '0'] + "] = " + TOHEX(valE) + '\n';
+	if (dstM != '#') output += (FString)"R[" + regind[dstM - '0'] + "] = " + TOHEX(valM) + '\n';
+	
 
 }
 
