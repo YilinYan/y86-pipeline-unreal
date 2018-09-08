@@ -17,21 +17,16 @@ Only the instructions in hex are supported for now.
 - Walk around to see the computing variables.
 
 ## Features
-<div align = "center">
+
 Easy to know what is going on in each stage.
-<img width = 400 hspace="30" src='/Pictures/3.png' align = "right" />
-</div>
+<img width = 400 src='/Pictures/3.png'  align = "right" />
 
-<div align = "center">
-<img width = 400 src='/Pictures/1.png' />
 Clear visual structure.
-</div>
+<img width = 400 src='/Pictures/1.png' align = "right" />
 
-<div align = "center">
 Access to all the intermediate variables.
-<image width = 400 hspace="30" src='/Pictures/2.png' align="right" />
-</div>
-</br>
+<image width = 400 src='/Pictures/2.png' align="right" />
+
 
 ## Development
 ### Prerequisites
