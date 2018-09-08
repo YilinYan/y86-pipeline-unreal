@@ -23,7 +23,7 @@ Easy to know what is going on in each stage.
 </div>
 
 <div align = "center">
-<img width = 400 hspace="30" src='/Pictures/1.png' />
+<img width = 400 src='/Pictures/1.png' />
 Clear visual structure.
 </div>
 
@@ -31,7 +31,7 @@ Clear visual structure.
 Access to all the intermediate variables.
 <image width = 400 hspace="30" src='/Pictures/2.png' align="right" />
 </div>
-
+</br>
 
 ## Development
 ### Prerequisites
