@@ -18,15 +18,28 @@ Only the instructions in hex are supported for now.
 
 ## Features
 
+<img width = 500 hspace = 20 src='/Pictures/3.png'  align = "right" />
+
+<h4>
+</br></br></br></br>
 Easy to know what is going on in each stage.
-<img width = 400 src='/Pictures/3.png'  align = "right" />
+</h4>
 
-Clear visual structure.
-<img width = 400 src='/Pictures/1.png' align = "right" />
+<img width = 500 hspace = 20 src='/Pictures/1.png' align = "left" />
 
+<h4 >
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+&emsp;&emsp;Clear visual structure.
+</h4>
+
+<image width = 500 hspace = 20 src='/Pictures/2.png' align="right" />
+
+<h4>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 Access to all the intermediate variables.
-<image width = 400 src='/Pictures/2.png' align="right" />
+</h4>
 
+</br></br></br></br></br></br></br></br></br></br></br>
 
 ## Development
 ### Prerequisites
