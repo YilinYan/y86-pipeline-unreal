@@ -1,10 +1,8 @@
 # y86-pipeline-unreal
-
 A 3D interactive scene simulating the Y86 CPU pipeline.
 
-
-<div aligh='center'>
-<image width = 500 src='/Pictures/4.png' align='center'>
+<div align = "center">
+  <img width = 700 src='/Pictures/4.png' align = "center"/>
 </div>
 
 ## Download
@@ -19,14 +17,8 @@ Only the instructions in hex are supported for now.
 - Walk around to see the computing variables.
 
 ## Features
-Easy to know what is going on in each stage.
-<image width = 500 src='/Pictures/3.png'>
 
-<image width = 500 src='/Pictures/1.png'>
-Clear visual structure.
 
-Access to all the intermediate variables.
-<image width = 500 src='/Pictures/2.png'>
 
 ## Development
 
